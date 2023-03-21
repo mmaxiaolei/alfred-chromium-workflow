@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/deanishe/awgo"
 	"strings"
+	"time"
 )
 
 var FetchHistory = func(wf *aw.Workflow, query string) {
@@ -46,10 +47,13 @@ var FetchHistory = func(wf *aw.Workflow, query string) {
 		}
 
 		unixTimestamp := ConvertChromeTimeToUnixTimestamp(urlLastVisitTime)
-		localeTimeStr := GetLocaleString(unixTimestamp)
+		//localeTimeStr := GetLocaleString(unixTimestamp)
+		// 转为yyyy-MM-dd hh:mm:ss格式
+		localeTimeStr := time.Unix(unixTimestamp, 0).Format("2006-01-02 15:04:05")
+		subTitle := "(" + localeTimeStr + ")" + "=>" + url
 
 		item := wf.NewItem(urlTitle).
-			Subtitle(localeTimeStr).
+			Subtitle(subTitle).
 			Valid(true).
 			Quicklook(url).
 			Autocomplete(urlTitle).

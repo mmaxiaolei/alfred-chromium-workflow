@@ -1,19 +1,37 @@
-alfred-chromium-workflow*
-cache
-_*
+target/
+src/main/webapp/WEB-INF/classes
+!.mvn/wrapper/maven-wrapper.jar
+logs/
+.vscode/
 
-# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
+### STS ###
+.DS_Store
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
 
-# Test binary, built with `go test -c`
-*.test
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*.log
 
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
+gen-external-apklibs/
+/node_modules/*
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+### dubbo
+dubboCache
+dubboCache.lock
+package-lock.json
+package.json
+
+swagger/
+
+### emt4j
+.emt4j/
+report.html
+alfred-chromium-workflow
